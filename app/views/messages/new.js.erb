@@ -1,0 +1,2 @@
+$('#card-message-new-<%= @card.id %>').html('<%= j render("new", card: @card, message: @message, path: card_messages_path(@card)) %>');
+$('#message-text-<%= @message.id %>').focus().trigger('click');

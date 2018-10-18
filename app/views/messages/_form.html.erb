@@ -1,0 +1,21 @@
+<div>
+  <textarea
+    data-editable="update"
+    data-edit="#message-show-<%= message.id %>"
+    data-show="#message-show-<%= message.id %>"
+    data-save="#message-save-<%= card.id %>"
+    data-url="<%= path %>"
+    data-type="<%= message.persisted? ? 'PUT' : 'POST' %>"
+    data-model="message"
+    data-attribute="content"
+    data-parent="#message-form-wrp"
+    placeholder="Add message"
+    class="form-control"
+    id="message-text-<%= message.id %>"><%= message.content %></textarea>
+  <div class="mt-2">
+    <button class="btn btn-sm btn-primary" data-editable="save" id="#message-save-<%= card.id %>">Save</button>
+    <button class="btn text-pale p-0 bg-0 border-0 mt-2" data-editable="cancel">
+      <span class="text-xxl">&times;</span>
+    </button>
+  </div>
+</div>

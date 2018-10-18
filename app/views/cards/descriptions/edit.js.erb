@@ -1,0 +1,3 @@
+$('#card-desc-show-<%= @card.id %>').hide();
+var editor = $('#card-desc-text-<%= @card.id %>').html('<%= j render("edit", card: @card) %>').show();
+editor.find('textarea').focus().trigger('click');

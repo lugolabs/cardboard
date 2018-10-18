@@ -1,0 +1,2 @@
+$('#board-list-add').before('<%= j render("list", list: @list) %>');
+$("#board-list-title-<%= @list.id %>").focus().trigger('click');

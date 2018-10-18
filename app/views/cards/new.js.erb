@@ -1,0 +1,4 @@
+var list = $("#list-cards-<%= @list.id %>");
+if (!list.find('form').length) {
+  list.prepend('<%= j render("new", list: @list, card: @card) %>');
+}

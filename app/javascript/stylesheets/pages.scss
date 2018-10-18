@@ -1,0 +1,256 @@
+/* Form Groups
+--------------------------------------------------
+*/
+.form-group {
+  margin-bottom: 10px;
+}
+.form-group label:not(.error) {
+  font-family: 'Montserrat';
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.form-group label .help {
+  margin-left: 8px;
+}
+.form-group .help {
+  font-size: 12px;
+  color: rgba(122, 137, 148, 0.55);
+}
+.form-group-default {
+  background-color: #fff;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 2px;
+  padding-top: 7px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 4px;
+  overflow: hidden;
+  width: 100%;
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+.form-group-default.required:after {
+  color: #ea2c54;
+  content: "*";
+  font-family: arial;
+  font-size: 20px;
+  position: absolute;
+  right: 12px;
+  top: 6px;
+}
+.form-group-default.disabled {
+  background: #f9f9fa;
+  color: rgba(122, 137, 148, 0.23);
+}
+.form-group-default.disabled input {
+  opacity: .6;
+}
+.form-group-default.disabled.focused {
+  background: #f9f9fa;
+}
+.form-group-default.disabled.focused label {
+  opacity: 1;
+}
+.form-group-default.focused {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  background-color: #f2f4f5;
+}
+.form-group-default.focused label {
+  opacity: .4;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.form-group-default.has-error {
+  background-color: rgba(234, 44, 84, 0.1);
+}
+.form-group-default.has-success .form-control-feedback,
+.form-group-default.has-error .form-control-feedback {
+  display: none !important;
+}
+.form-group-default.has-success .form-control,
+.form-group-default.has-success .form-control:focus,
+.form-group-default.has-error .form-control,
+.form-group-default.has-error .form-control:focus {
+  border: none;
+  box-shadow: none;
+}
+.form-group-default.input-group {
+  padding: 0;
+}
+.form-group-default.input-group > label {
+  margin-top: 6px;
+  padding-left: 12px;
+}
+.form-group-default.input-group > label.inline {
+  margin-top: 6px;
+  float: left;
+}
+.form-group-default.input-group > .form-control {
+  margin-top: -2px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+}
+.form-group-default.input-group .input-group-addon {
+  height: calc(50px);
+  border-radius: 0;
+  border: none;
+}
+.form-group-default.input-group.focused .input-group-addon {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.form-group-default .form-control {
+  border: none;
+  height: 25px;
+  min-height: 25px;
+  padding: 0;
+  margin-top: -4px;
+  background: none;
+  box-shadow: none;
+}
+.form-group-default .form-control.error {
+  color: #373e43;
+}
+.form-group-default .form-control:focus {
+  background: none;
+}
+.form-group-default textarea.form-control {
+  padding-top: 5px;
+}
+.form-group-default label {
+  margin: 0;
+  display: block;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+.form-group-default label.label-lg {
+  font-size: 13px;
+  left: 13px;
+  top: 9px;
+}
+.form-group-default label.label-sm {
+  font-size: 11px;
+  left: 11px;
+  top: 6px;
+}
+.form-group-default label.highlight {
+  opacity: 1;
+}
+.form-group-default label.fade {
+  opacity: .5;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.form-group-default > .input-lg {
+  height: 29px;
+  min-height: 29px;
+  padding-left: 1px;
+}
+.form-group-default > .input-sm {
+  min-height: 18px;
+  height: 18px;
+}
+.form-group-default.form-group-default-select {
+  overflow: visible;
+}
+.form-group-default.form-group-default-select .ui-select-container.ui-select-bootstrap.dropdown .ui-select-match {
+  padding-top: 6px;
+  height: 23px;
+}
+.form-group-default.form-group-default-select .ui-select-container .select2-choices {
+  border: 0px;
+}
+.form-group-default.form-group-default-select2 {
+  padding: 0;
+}
+.form-group-default.form-group-default-select2 > label {
+  position: absolute;
+  z-index: 10;
+  padding: 7px 12px 0 12px;
+}
+.form-group-default.form-group-default-select2 > label.label-lg {
+  left: 0;
+  top: 0;
+}
+.form-group-default.form-group-default-select2 > label.label-sm {
+  left: 0;
+  top: 0;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--single {
+  padding-top: 20px;
+  height: 52px;
+  border: 0 !important;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--single .select2-arrow b:before {
+  top: 20px;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--single .select2-chosen {
+  padding-left: 3px;
+  padding-top: 1px;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--multiple {
+  padding-top: 20px;
+  height: 52px;
+  border: 0px !important;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+  margin-top: 4px;
+}
+.form-group-default.form-group-default-select2 > .input-lg {
+  height: auto;
+  padding: 0;
+}
+.form-group-default.form-group-default-select2 > .input-lg .select2-choice {
+  padding-top: 20px;
+  height: 56px;
+}
+.form-group-default.form-group-default-select2 > .input-sm {
+  height: auto;
+  padding: 0;
+}
+.form-group-default.form-group-default-select2 > .input-sm .select2-choice {
+  padding-top: 20px;
+  height: 46px;
+}
+.form-group-default.form-group-default-selectFx {
+  padding: 0;
+}
+.form-group-default.form-group-default-selectFx > label {
+  position: absolute;
+  z-index: 10;
+  padding: 7px 12px 0 12px;
+}
+.form-group-default.form-group-default-selectFx > label.label-lg {
+  left: 0;
+  top: 0;
+}
+.form-group-default.form-group-default-selectFx > label.label-sm {
+  left: 0;
+  top: 0;
+}
+.form-group-default.form-group-default-selectFx .cs-wrapper .cs-placeholder {
+  padding-top: 28px;
+  height: 52px;
+  padding-left: 12px;
+}
+.form-group-default.form-group-default-selectFx .cs-wrapper .cs-select {
+  height: auto;
+}
+.form-group-default.form-group-default-selectFx .cs-wrapper .cs-select > span:after,
+.form-group-default.form-group-default-selectFx .cs-wrapper .cs-select .cs-selected span:after {
+  top: 39px;
+}
+.form-group-default.form-group-default-selectFx .cs-wrapper .cs-select.input-lg .cs-placeholder {
+  height: 60px;
+}
+.form-group-default.form-group-default-selectFx .cs-wrapper .cs-select.input-sm .cs-placeholder {
+  height: 50px;
+}
+.form-group-default.form-group-default-selectFx .cs-wrapper .dropdown-placeholder {
+  vertical-align: top;
+}

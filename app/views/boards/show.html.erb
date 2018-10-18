@@ -1,0 +1,30 @@
+<%= content_for :title, @board.title %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <h1 class="h6 mb-1">
+        <textarea class="h6" rows="1" data-editable="update" data-url="<%= board_path(@board) %>" data-attribute="title" data-model="board" data-update="#header-board-title-<%= @board.id %>" id="board-title-<%= @board.id %>" title="Board title - Click to edit"><%= @board.title %></textarea>
+      </h1>
+    </div>
+  </div>
+
+  <div class="list-cols-wrp" id="board-lists-wrp">
+    <div class="clearfix list-cols" id="board-lists">
+      <%= render @board.lists %>
+
+      <div class="list-col" id="board-list-add">
+        <%= link_to board_lists_path(@board), remote: true, method: 'post', class: 'btn-link text-muted text-xs' do %>
+          <i class="iconly-0823-plus mr-1"></i>
+          <%= t('.add') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render('cards/show', board: @board, card: @card) if @card %>
+
+<script>
+  new app.List
+</script>

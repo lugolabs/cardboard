@@ -1,0 +1,52 @@
+<div class="modal" id="card-modal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body px-4">
+        <div class="row">
+          <div class="col-md-11">
+            <h5 class="my-0 mr-0 ml--1">
+              <textarea class="h5" rows="1" data-editable="update" data-url="<%= card_path(card) %>" data-attribute="title" data-model="card" data-update="#card-title-<%= card.id %>"><%= card.title %></textarea>
+            </h5>
+          </div>
+          <div class="col-md-1">
+            <%= link_to board, class: 'close', aria: { label: 'Close' } do %>
+              <span aria-hidden="true">&times;</span>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-md-10">
+            <h5 class="text-xs text-muted mb-0">
+              Description
+              <%= link_to 'Edit', [:edit, card, :description], remote: true, id: "card-desc-edit-#{card.id}" %>
+            </h5>
+            <div id="card-desc-show-<%= card.id %>" class="markup-wrp">
+              <%= render 'cards/descriptions/description', card: card %>
+            </div>
+            <div id="card-desc-text-<%= card.id %>"></div>
+            <hr>
+          </div>
+          <div class="col-md-2">
+            <%= link_to 'Add message', [:new, card, :message], remote: true, class: 'btn btn-sm btn-block btn-primary' %>
+            <%= link_to 'Delete', card, remote: true, method: 'delete',
+              data: { confirm: t('.confirm_delete') },
+              class: 'btn btn-sm btn-block btn-default' %>
+          </div>
+        </div>
+
+        <div id="card-message-new-<%= card.id %>"></div>
+
+        <div class="mb-4">
+          <%= render card.messages %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#card-modal').modal();
+</script>

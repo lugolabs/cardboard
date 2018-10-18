@@ -1,0 +1,4 @@
+error_sender: errors@example.com
+exception_recipients: recipient@example.com
+host: cardboard.com
+mailer_sender: sender@example.com

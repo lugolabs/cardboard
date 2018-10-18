@@ -1,0 +1,19 @@
+<div>
+  <textarea
+    data-editable="update"
+    data-save="#card-desc-save-<%= card.id %>"
+    data-edit="#card-desc-edit-<%= card.id %>"
+    data-show="#card-desc-show-<%= card.id %>"
+    data-url="<%= card_description_path(card) %>"
+    data-model="card"
+    data-attribute="description"
+    placeholder="Add description"
+    class="form-control"
+    id="card-desc-text-<%= card.id %>"><%= card.description %></textarea>
+  <div class="mt-1">
+    <button class="btn btn-sm btn-primary" data-editable="save">Save</button>
+    <button class="btn text-pale p-0 bg-0 border-0 mt-2" data-editable="cancel">
+      <span class="text-xxl">&times;</span>
+    </button>
+  </div>
+</div>

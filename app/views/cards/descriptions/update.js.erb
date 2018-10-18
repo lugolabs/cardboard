@@ -1,0 +1,2 @@
+$('#card-desc-text-<%= @card.id %>').hide();
+$('#card-desc-show-<%= @card.id %>').html('<%= j render("description", card: @card) %>').show();

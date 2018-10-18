@@ -1,0 +1,5 @@
+<%= link_to [card], class: 'card card-body py-1 px-2 text-muted', data: { action: 'drag-item', id: card.id, move: card_movements_path(card) } do %>
+  <span id="card-title-<%= card.id %>">
+    <%= card.title %>
+  </span>
+<% end %>

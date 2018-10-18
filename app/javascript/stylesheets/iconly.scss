@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "iconly";
+  src: url('../images/fonts/iconly/iconly.eot');
+  src: url('../images/fonts/iconly/iconly.eot?#iefix') format("embedded-opentype"),
+       url('../images/fonts/iconly/iconly.woff') format("woff"),
+       url('../images/fonts/iconly/iconly.ttf') format("truetype"),
+       url('../images/fonts/iconly/iconly.svg#iconly') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.iconly-0130-trash2:before,
+.iconly-0215-reading:before,
+.iconly-0287-user:before,
+.iconly-0651-smile:before,
+.iconly-0655-wink:before,
+.iconly-0823-plus:before,
+.iconly-0824-minus:before {
+  display: inline-block;
+  font-family: "iconly";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.iconly-0130-trash2:before { content: "\f120"; }
+.iconly-0215-reading:before { content: "\f125"; }
+.iconly-0287-user:before { content: "\f104"; }
+.iconly-0651-smile:before { content: "\f121"; }
+.iconly-0655-wink:before { content: "\f122"; }
+.iconly-0823-plus:before { content: "\f123"; }
+.iconly-0824-minus:before { content: "\f124"; }
+

@@ -1,0 +1,26 @@
+<div class="list-col" data-action="drag" data-id="<%= list.id %>">
+  <div class="row">
+    <div class="col-sm-9">
+      <h3 class="h6 text-primary m-0">
+        <textarea class="h6 text-xs" rows="1" data-editable="update" data-url="<%= board_list_path(list.board, list) %>" data-attribute="title" data-model="list" id="board-list-title-<%= list.id %>"><%= list.title %></textarea>
+      </h3>
+    </div>
+    <div class="col-sm-3 pl-0 text-right">
+      <%= link_to [:new, list, :card], remote: true, class: 'btn-link btn-link-hover p-1 text-xxs text-muted', title: t('.add_card') do %>
+        <i class="iconly-0823-plus"></i>
+      <% end %>
+      <%= link_to [list.board, list],
+        class: 'btn-link btn-link-hover p-1 border-0 text-xxs text-muted',
+        title: t('delete'),
+        remote: true,
+        method: 'delete',
+        data: { confirm: t('.confirm_delete') } do %>
+        <i class="iconly-0824-minus"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="list-cards" id="list-cards-<%= list.id %>">
+    <%= render list.cards %>
+  </div>
+</div>

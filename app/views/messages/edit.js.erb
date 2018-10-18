@@ -1,0 +1,2 @@
+$('#message-edit-<%= @message.id %>').html('<%= j render("form", card: @card, message: @message, path: card_message_path(@card, @message)) %>');
+$('#message-text-<%= @message.id %>').focus().trigger('click');
