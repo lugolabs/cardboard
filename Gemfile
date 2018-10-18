@@ -52,4 +52,12 @@ group :development do
 
   # Code checks
   gem 'rubocop', require: false
+
+  # Deployment
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-sidekiq', require: false
+  gem 'capistrano3-puma', require: false
 end
