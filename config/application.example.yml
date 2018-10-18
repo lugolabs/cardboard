@@ -1,3 +1,4 @@
+secret_key_base: 71e406fe73f9a0b7050d01e561468fb42b553c21166f450cd27a08e02c84df9c5ecaef2a6bea0bd54495bc9cea7017102315fef88fdd58644423304a5160a491
 error_sender: errors@example.com
 exception_recipients: recipient@example.com
 host: cardboard.com
