@@ -9,13 +9,13 @@ class CardsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    get new_list_card_url(list_id: @card.list_id)
+    get new_list_card_url(@card)
     assert_response :success
   end
 
   test 'should create card' do
     assert_difference('Card.count') do
-      post list_cards_url(list_id: @list.id), params: { card: { description: 'New description', title: 'New title' } }
+      post list_cards_url(@list), params: { card: { description: 'New description', title: 'New title' } }
     end
 
     assert_redirected_to board_url(@list.board)

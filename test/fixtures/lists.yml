@@ -5,3 +5,9 @@ todo:
   user: fred
   title: TODO
   position: 1
+
+doing:
+  board: tracker
+  user: fred
+  title: DOING
+  position: 2
