@@ -1,6 +1,7 @@
 import jQuery from 'jquery'
 import 'jquery-ui/ui/widgets/sortable'
-import 'bootstrap'
+import 'bootstrap/js/src/dropdown'
+import 'bootstrap/js/src/modal'
 import Rails from 'rails-ujs'
 import Turbolinks from 'turbolinks'
 import { Application } from 'stimulus'
