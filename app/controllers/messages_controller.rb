@@ -13,12 +13,10 @@ class MessagesController < ApplicationController
     @message = @card.messages.build(message_params)
     @message.user = current_user
     @message.save
-    redirect_to [@card.list, @card]
   end
 
   def update
     @message.update(message_params)
-    # redirect_to [@card.list, @card]
   end
 
   def destroy
