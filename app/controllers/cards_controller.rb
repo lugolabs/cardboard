@@ -9,6 +9,10 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
+    respond_to do |format|
+      format.html { render(plain: 'success') }
+      format.js
+    end
   end
 
   def create
