@@ -41,6 +41,9 @@ gem 'figaro'
 group :development, :test do
   # Adds support for Capybara system testing
   gem 'capybara', '~> 2.13'
+
+  # Security
+  gem 'brakeman', require: false
 end
 
 group :development do

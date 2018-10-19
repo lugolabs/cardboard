@@ -1,0 +1,65 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "34ace8b0d0fbc83b74e4aa3110efc05cf064552887a34e9a598241ec63295878",
+      "check_name": "Redirect",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/lists_controller.rb",
+      "line": 23,
+      "link": "https://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(current_user_boards.find(params[:board_id]))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ListsController",
+        "method": "destroy"
+      },
+      "user_input": "params[:board_id]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "545054509691513d142f531cf10dcf953aac4cf95d7d639ee2b2d0dc99eebb7a",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/boards/show.html.erb",
+      "line": 14,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => current_user_boards.find(params[:id]).lists, {})",
+      "render_path": [{"type":"controller","class":"BoardsController","method":"show","line":10,"file":"app/controllers/boards_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "boards/show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Weak Hash",
+      "warning_code": 90,
+      "fingerprint": "5a06664dd0bee8041cbb90151159dcc346d32fa28f9ee3dcd83c7e2749fdbef9",
+      "check_name": "WeakHash",
+      "message": "Weak hashing algorithm (MD5) used",
+      "file": "lib/markdown_handler.rb",
+      "line": 19,
+      "link": "https://brakemanscanner.org/docs/warning_types/weak_hash/",
+      "code": "Digest::MD5.hexdigest(text)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "MarkdownHandler",
+        "method": "cache_key"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    }
+  ],
+  "updated": "2018-10-19 14:12:24 +0200",
+  "brakeman_version": "4.1.1"
+}
