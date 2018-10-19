@@ -4,24 +4,43 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-  end
-
-  def edit
+    respond_to do |format|
+      format.html { render(plain: 'success') }
+      format.js
+    end
   end
 
   def create
     @message = @card.messages.build(message_params)
     @message.user = current_user
     @message.save
+    respond_to do |format|
+      format.html { render(plain: 'success') }
+      format.js
+    end
+  end
+
+  def edit
+    respond_to do |format|
+      format.html { render(plain: 'success') }
+      format.js
+    end
   end
 
   def update
     @message.update(message_params)
+    respond_to do |format|
+      format.html { render(plain: 'success') }
+      format.js
+    end
   end
 
   def destroy
     @message.destroy
-    redirect_to [@card.list, @card]
+    respond_to do |format|
+      format.html { render(plain: 'success') }
+      format.js
+    end
   end
 
   private

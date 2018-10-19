@@ -6,3 +6,10 @@ start:
   title: Start project
   description: Start project and database
   row_order: 1
+
+fix:
+  list: todo
+  user: fred
+  title: Fix issue
+  description: Fix issue with the database
+  row_order: 2
