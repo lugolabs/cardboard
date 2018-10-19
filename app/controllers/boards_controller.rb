@@ -14,8 +14,12 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = current_user.boards.create(title: '[Untitled]')
-    redirect_to @board
+    @board = current_user.boards.new(title: '[Untitled]')
+    if @board.valid?
+      redirect_to @board
+    else
+      redirect_to boards_path, notice: @board.errors.full_messages.to_sentence
+    end
   end
 
   def update
