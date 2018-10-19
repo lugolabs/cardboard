@@ -2,7 +2,9 @@ require 'test_helper'
 
 class BoardsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @board = boards(:one)
+    @board = boards(:tracker)
+    @user = users(:fred)
+    sign_in_as @user
   end
 
   test 'should get index' do
@@ -10,17 +12,22 @@ class BoardsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get new' do
-    get new_board_url
-    assert_response :success
-  end
-
   test 'should create board' do
     assert_difference('Board.count') do
-      post boards_url, params: { board: { owner_id: @board.owner_id, slug: @board.slug, title: @board.title } }
+      post boards_url
     end
 
     assert_redirected_to board_url(Board.last)
+  end
+
+  test 'should not create board if title is the same' do
+    @user.boards.create(title: I18n.t('boards.untitled'))
+    assert_difference('Board.count', 0) do
+      post boards_url
+    end
+
+    assert_redirected_to boards_url
+    assert_equal 'Title has already been taken', flash[:notice]
   end
 
   test 'should show board' do
@@ -28,14 +35,9 @@ class BoardsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get edit' do
-    get edit_board_url(@board)
-    assert_response :success
-  end
-
   test 'should update board' do
-    patch board_url(@board), params: { board: { owner_id: @board.owner_id, slug: @board.slug, title: @board.title } }
-    assert_redirected_to board_url(@board)
+    patch board_url(@board), params: { board: { title: 'New title' } }
+    assert_response :success
   end
 
   test 'should destroy board' do

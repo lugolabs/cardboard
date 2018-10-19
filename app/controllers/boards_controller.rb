@@ -8,14 +8,9 @@ class BoardsController < ApplicationController
   def show
   end
 
-  def new
-    @board = Board.new
-    render :new, layout: !request.xhr?
-  end
-
   def create
-    @board = current_user.boards.new(title: '[Untitled]')
-    if @board.valid?
+    @board = current_user.boards.new(title: t('boards.untitled'))
+    if @board.save
       redirect_to @board
     else
       redirect_to boards_path, notice: @board.errors.full_messages.to_sentence
