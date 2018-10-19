@@ -3,13 +3,6 @@
   <%= form.password_field :password %>
 
   <div class="mt-4">
-    <%= form.submit %>
-  </div>
-
-  <div class="mt-4 text-sm">
-    <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path %> &bull;
-    <% end %>
-    <%= link_to t(".forgot_password"), new_password_path %>
+    <%= form.submit class: 'btn btn-block btn-primary' %>
   </div>
 <% end %>

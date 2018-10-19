@@ -1,17 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  list_id: MyString
-  user_id: MyString
-  title: MyString
-  description: MyText
-  slug: MyString
-  position: 1
-
-two:
-  list_id: MyString
-  user_id: MyString
-  title: MyString
-  description: MyText
-  slug: MyString
-  position: 1
+start:
+  list: todo
+  user: fred
+  title: Start project
+  description: Start project and database
+  row_order: 1

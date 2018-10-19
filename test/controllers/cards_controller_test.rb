@@ -2,30 +2,23 @@ require 'test_helper'
 
 class CardsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @card = cards(:one)
-  end
-
-  test 'should get index' do
-    get cards_url
-    assert_response :success
+    @list = lists(:todo)
+    @card = cards(:start)
+    @user = users(:fred)
+    sign_in_as @user
   end
 
   test 'should get new' do
-    get new_card_url
+    get new_list_card_url(list_id: @card.list_id)
     assert_response :success
   end
 
   test 'should create card' do
     assert_difference('Card.count') do
-      post cards_url, params: {
-        card: {
-          description: @card.description, list_id: @card.list_id, position: @card.position, slug: @card.slug,
-          title: @card.title, user_id: @card.user_id
-        }
-      }
+      post list_cards_url(list_id: @list.id), params: { card: { description: 'New description', title: 'New title' } }
     end
 
-    assert_redirected_to card_url(Card.last)
+    assert_redirected_to board_url(@list.board)
   end
 
   test 'should show card' do
@@ -33,19 +26,9 @@ class CardsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get edit' do
-    get edit_card_url(@card)
-    assert_response :success
-  end
-
   test 'should update card' do
-    patch card_url(@card), params: {
-      card: {
-        description: @card.description, list_id: @card.list_id, position: @card.position, slug: @card.slug,
-        title: @card.title, user_id: @card.user_id
-      }
-    }
-    assert_redirected_to card_url(@card)
+    patch card_url(@card), params: { card: { description: 'New description', title: 'New title' } }
+    assert_response :success
   end
 
   test 'should destroy card' do
@@ -53,6 +36,6 @@ class CardsControllerTest < ActionDispatch::IntegrationTest
       delete card_url(@card)
     end
 
-    assert_redirected_to cards_url
+    assert_redirected_to board_url(@list.board)
   end
 end

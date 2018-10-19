@@ -1,15 +1,15 @@
-<div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
+<div class="row mt-5">
+  <div class="col-lg-3 col-md-5 mx-auto">
+    <div class="card">
+      <div class="card-body px-5 pt-4 pb-5">
+        <h2 class="mb-4"><%= t('.title') %></h2>
 
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form', object: form %>
-
-    <div class="submit-field">
-      <%= form.submit %>
+          <%= render 'users/form', user: @user  %>
+      </div>
     </div>
 
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
+    <div class="mt-4 text-sm text-center">
+      <%= link_to t('.sign_in'), sign_in_path, class: 'text-muted' %>
     </div>
-  <% end %>
+  </div>
 </div>

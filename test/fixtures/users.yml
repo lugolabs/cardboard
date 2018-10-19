@@ -1,0 +1,7 @@
+fred:
+  first_name: Fred
+  last_name: Astaire
+  email: fred@gmail.com
+  role: :admin
+  encrypted_password: '$2a$10$1JF6vlwNB1IQOUpWdheGqu8PoY9/G5atgii5WfrIy.6VsIwZbyc4q'
+  remember_token: 926cb7eff94422dd2721973b03619497cbf6b9d3

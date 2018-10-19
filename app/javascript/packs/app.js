@@ -16,7 +16,7 @@ export default class App {
   }
 
   _hideFlash() {
-    setTimeout(() => { $('#container-flash').fadeOut() }, 2000)
+    setTimeout(() => { $('#container-flash').fadeOut() }, 3000)
   }
 
   _remove(e, el) {
