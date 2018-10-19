@@ -19,7 +19,6 @@ class CardsController < ApplicationController
     @card = @list.cards.build(card_params.merge(row_order_position: :first))
     @card.user = current_user
     @card.save
-    redirect_to @list.board
   end
 
   def update

@@ -3,6 +3,7 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : 'Your boards' %> : Cardboard</title>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag asset_pack_path('images/favicon.png') %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

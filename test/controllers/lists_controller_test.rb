@@ -2,47 +2,32 @@ require 'test_helper'
 
 class ListsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @list = lists(:one)
-  end
-
-  test 'should get index' do
-    get lists_url
-    assert_response :success
-  end
-
-  test 'should get new' do
-    get new_list_url
-    assert_response :success
+    @board = boards(:tracker)
+    @list  = lists(:todo)
+    @user  = users(:fred)
+    sign_in_as @user
   end
 
   test 'should create list' do
     assert_difference('List.count') do
-      post lists_url, params: { list: { board_id: @list.board_id, title: @list.title, user_id: @list.user_id } }
+      post board_lists_url(@board)
     end
 
-    assert_redirected_to list_url(List.last)
-  end
-
-  test 'should show list' do
-    get list_url(@list)
     assert_response :success
-  end
-
-  test 'should get edit' do
-    get edit_list_url(@list)
-    assert_response :success
+    assert_equal I18n.t('lists.untitled'), List.last.title
   end
 
   test 'should update list' do
-    patch list_url(@list), params: { list: { board_id: @list.board_id, title: @list.title, user_id: @list.user_id } }
-    assert_redirected_to list_url(@list)
+    patch board_list_url(@board, @list), params: { list: { title: 'New title' } }
+    assert_response :success
+    assert_equal 'New title', @list.reload.title
   end
 
   test 'should destroy list' do
     assert_difference('List.count', -1) do
-      delete list_url(@list)
+      delete board_list_url(@board, @list)
     end
 
-    assert_redirected_to lists_url
+    assert_redirected_to board_url(@board)
   end
 end

@@ -21,7 +21,6 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy
-    redirect_to [@card.list, @card]
   end
 
   private

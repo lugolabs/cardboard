@@ -27,7 +27,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.destroy
-    redirect_to boards_url, notice: 'Board was successfully destroyed.'
+    redirect_to boards_url, notice: t('.notice')
   end
 
   private
