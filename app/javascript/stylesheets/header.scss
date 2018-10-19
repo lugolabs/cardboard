@@ -5,11 +5,16 @@
   background-color: #2b303b;
   color: #b3a1ff;
 
+
   a {
     color: #b3a1ff;
 
     &:hover {
       color: #d6cdfd;
     }
+  }
+
+  .dropdown.show > a {
+    color: #d6cdfd;
   }
 }
