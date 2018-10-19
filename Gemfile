@@ -44,6 +44,8 @@ group :development, :test do
 
   # Security
   gem 'brakeman', require: false
+  gem 'bundler-audit', require: false, git: 'https://github.com/rubysec/bundler-audit.git'
+  gem 'dawnscanner', require: false
 end
 
 group :development do
