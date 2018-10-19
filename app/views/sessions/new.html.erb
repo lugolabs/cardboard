@@ -1,11 +1,18 @@
 <div class="row mt-5">
-  <div class="col-md-3 col-sm-4 mx-auto">
+  <div class="col-lg-3 col-md-5 mx-auto">
     <div class="card">
-      <div class="card-body px-5 py-4">
+      <div class="card-body px-5 pt-4 pb-5">
         <h2 class="mb-4"><%= t(".title") %></h2>
 
         <%= render partial: '/sessions/form' %>
       </div>
+    </div>
+
+    <div class="mt-4 text-sm text-center">
+      <% if Clearance.configuration.allow_sign_up? %>
+        <%= link_to t(".sign_up"), sign_up_path, class: 'text-muted' %> &bull;
+      <% end %>
+      <%= link_to t(".forgot_password"), new_password_path, class: 'text-muted' %>
     </div>
   </div>
 </div>
