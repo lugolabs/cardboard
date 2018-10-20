@@ -2,6 +2,8 @@ class User < ApplicationRecord
   include Clearance::User
 
   has_many :boards, dependent: :destroy
+  has_many :checklists, dependent: :nullify
+  has_many :checklist_items, dependent: :nullify
 
   enum role: { normal: 1, admin: 2 }
 

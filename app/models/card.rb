@@ -2,6 +2,7 @@ class Card < ApplicationRecord
   belongs_to :list
   belongs_to :user
   has_many :messages, dependent: :destroy
+  has_many :checklists, dependent: :destroy
 
   validates :title, presence: true
 
