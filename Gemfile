@@ -39,9 +39,6 @@ gem 'redcarpet'
 gem 'figaro'
 
 group :development, :test do
-  # Adds support for Capybara system testing
-  gem 'capybara', '~> 2.13'
-
   # Security
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false, git: 'https://github.com/rubysec/bundler-audit.git'
@@ -57,4 +54,13 @@ group :development do
 
   # Code checks
   gem 'rubocop', require: false
+end
+
+group :test do
+  # Adds support for Capybara system testing
+  gem 'capybara', '~> 2.13'
+  gem 'selenium-webdriver'
+
+  # Mocking and stubbing
+  gem 'mocha'
 end
