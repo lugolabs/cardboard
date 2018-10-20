@@ -14,7 +14,7 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :success
-    assert_equal I18n.t('lists.untitled'), List.last.title
+    assert List.find_by(title: I18n.t('lists.untitled'))
   end
 
   test 'should update list' do

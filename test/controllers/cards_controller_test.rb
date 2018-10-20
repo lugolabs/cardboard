@@ -9,7 +9,7 @@ class CardsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    get new_list_card_url(@card)
+    get new_list_card_url(@list)
     assert_response :success
   end
 
@@ -17,8 +17,7 @@ class CardsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Card.count') do
       post list_cards_url(@list), params: { card: { description: 'New description', title: 'New title' } }
     end
-
-    assert_redirected_to board_url(@list.board)
+    assert_response :success
   end
 
   test 'should show card' do
