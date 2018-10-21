@@ -48,7 +48,6 @@ export default class Editable {
   }
 
   _saveRemote (data) {
-    console.log(this._currentEl.data('url'))
     $.ajax({
       type:   this._getType(),
       url:    this._currentEl.data('url'),

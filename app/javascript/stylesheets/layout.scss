@@ -337,3 +337,29 @@ a.text-muted:hover {
   background: #fff;
   overflow: hidden;
 }
+
+// checklist
+.checklist-item {
+  .checklist-item-col {
+    line-height: 1.2;
+  }
+
+  .checklist-item-delete {
+    font-size: 1.3rem;
+    padding: 0 .3rem;
+    line-height: 1;
+    display: none;
+  }
+
+  input[type="checkbox"] {
+    margin-top: .35rem;
+  }
+
+  &:hover {
+    background: #eee;
+
+    .checklist-item-delete {
+      display: inline-block;
+    }
+  }
+}

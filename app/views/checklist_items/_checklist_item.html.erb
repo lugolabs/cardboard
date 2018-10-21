@@ -1,5 +1,10 @@
-<div class="row" id="checklist-<%= checklist_item.checklist_id %>-item-<%= checklist_item.id %>">
-  <div class="col-md-11">
+<div class="row checklist-item" id="checklist-<%= checklist_item.checklist_id %>-item-<%= checklist_item.id %>">
+  <div class="col-md-1 checklist-item-col">
+    <% if checklist_item.persisted? %>
+      <input type="checkbox" name="" class="">
+    <% end %>
+  </div>
+  <div class="col-md-10 pl-0 checklist-item-col">
     <textarea rows="1"
       data-editable="update"
       data-url="<%= checklist_item.persisted? ? checklist_checklist_item_path(checklist_item.checklist, checklist_item) : checklist_checklist_items_path(checklist_item.checklist) %>"
@@ -8,9 +13,9 @@
       data-type="<%= checklist_item.persisted? ? 'PUT' : 'POST' %>"
       placeholder="<%= t('.placeholder') %>"><%= checklist_item.title %></textarea>
   </div>
-  <div class="col-md-1 text-right">
-    <%= link_to [checklist_item.checklist, checklist_item], method: :delete, remote: true, class: 'btn btn-xs btn-secondary py-0' do %>
-      <span class="h4">&times;</span>
+  <div class="col-md-1 text-right  checklist-item-col">
+    <% if checklist_item.persisted? %>
+      <%= link_to '&times;'.html_safe, [checklist_item.checklist, checklist_item], method: :delete, remote: true, class: 'checklist-item-delete', title: t('delete') %>
     <% end %>
   </div>
 </div>

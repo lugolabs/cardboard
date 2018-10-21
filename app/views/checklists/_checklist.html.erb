@@ -1,6 +1,8 @@
 <div id="checklist-<%= checklist.id %>">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-9 pl-0">
       <h4 class="h6 mb-0 mt-0" id="#checklist-title-<%= checklist.id %>">
         <textarea class="h6" rows="1"
           data-editable="update"
@@ -17,5 +19,5 @@
   <div id="checklist-<%= checklist.id %>-items">
     <%= render checklist.checklist_items %>
   </div>
-  <%= link_to t('.add_item'), new_checklist_checklist_item_path(checklist), remote: true, class: 'text-xs text-muted underline', id: "checklist-#{checklist.id}-add" %>
+  <%= link_to t('.add_item'), new_checklist_checklist_item_path(checklist), remote: true, class: 'text-xs text-muted underline inline-block ml-1', id: "checklist-#{checklist.id}-add" %>
 </div>
