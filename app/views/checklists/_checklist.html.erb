@@ -19,5 +19,10 @@
   <div id="checklist-<%= checklist.id %>-items">
     <%= render checklist.checklist_items %>
   </div>
-  <%= link_to t('.add_item'), new_checklist_checklist_item_path(checklist), remote: true, class: 'text-xs text-muted underline inline-block ml-1', id: "checklist-#{checklist.id}-add" %>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 pl-0">
+      <%= link_to t('.add_item'), new_checklist_checklist_item_path(checklist), remote: true, class: 'text-xs text-muted underline inline-block ml-1', id: "checklist-#{checklist.id}-add" %>
+    </div>
+  </div>
 </div>
