@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_card
+  before_action :require_login, :set_card
   before_action :set_message, only: %i[edit update destroy]
 
   def new

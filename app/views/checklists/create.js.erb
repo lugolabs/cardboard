@@ -1,0 +1,3 @@
+$('#card-checklists').append('<%= j render("checklist", checklist: @checklist) %>');
+$('#checklist-<%= @checklist.id %>-add').addClass('hidden');
+$("#checklist-<%= @checklist.id %>-items textarea").focus()

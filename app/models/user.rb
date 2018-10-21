@@ -21,6 +21,10 @@ class User < ApplicationRecord
     Card.where(list_id: all_lists.select(:id))
   end
 
+  def all_checklists
+    Checklist.joins(card: { list: :board }).where(boards: { user_id: id })
+  end
+
   def name
     first_name || last_name || email.split('@')[0]
   end

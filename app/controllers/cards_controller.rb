@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  before_action :require_login
   before_action :set_list, only: %i[new create]
   before_action :set_card, only: %i[show update destroy]
 

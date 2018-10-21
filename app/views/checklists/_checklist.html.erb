@@ -1,0 +1,21 @@
+<div id="checklist-<%= checklist.id %>">
+  <div class="row">
+    <div class="col-md-10">
+      <h4 class="h6 mb-0 mt-0" id="#checklist-title-<%= checklist.id %>">
+        <textarea class="h6" rows="1"
+          data-editable="update"
+          data-url="<%= card_checklist_path(checklist.card, checklist) %>"
+          data-attribute="title"
+          data-model="checklist"><%= checklist.title %></textarea>
+      </h4>
+    </div>
+    <div class="col-md-2 text-right">
+      <%= link_to t('delete'), [checklist.card, checklist], method: :delete, remote: true, data: { confirm: t('.confirm_delete') },  class: 'mt-1 inline-block text-xs text-muted underline' %>
+    </div>
+  </div>
+
+  <div id="checklist-<%= checklist.id %>-items">
+    <%= render checklist.checklist_items %>
+  </div>
+  <%= link_to t('.add_item'), new_checklist_checklist_item_path(checklist), remote: true, class: 'text-xs text-muted underline', id: "checklist-#{checklist.id}-add" %>
+</div>

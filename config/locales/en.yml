@@ -7,6 +7,14 @@ en:
   application:
     header:
       boards: Boards
+  checklists:
+    checklist:
+      add_item: Add item
+      confirm_delete: Are you sure you want to delete this checklist? This action cannot be undone.
+    default_title: Checklist
+  checklist_items:
+    checklist_item:
+      placeholder: New item
   boards:
     index:
       title: Your boards
@@ -28,6 +36,8 @@ en:
     destroy:
       success: Card was successfully deleted.
     show:
+      add_checklist: Add checklist
+      add_message: Add message
       confirm_delete: You sure you want to delete this card?
   messages:
     contents:

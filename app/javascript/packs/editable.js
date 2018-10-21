@@ -1,7 +1,9 @@
+import Rails from 'rails-ujs'
+
 export default class Editable {
   constructor() {
     app.document
-      .on('click', '[data-editable="update"]', (e) => { this._start(e) })
+      .on('click focus', '[data-editable="update"]', (e) => { this._start(e) })
       .on('click', '[data-editable="save"]', (e) => { this._stop() })
       .on('click', '[data-editable="cancel"]', (e) => { this._cancel(e) })
       .on('keydown', '[data-editable="update"]', (e) => { this._onKeydown(e) })
@@ -30,7 +32,7 @@ export default class Editable {
   _save() {
     this._showEdit()
     const value = this._currentEl.val()
-    if (this._originalText == value) {
+    if (value.length && value == this._originalText) {
       return this._showMarkup()
     }
     $(this._currentEl.data('update')).text(value)
@@ -46,10 +48,11 @@ export default class Editable {
   }
 
   _saveRemote (data) {
+    console.log(this._currentEl.data('url'))
     $.ajax({
-      type: this._getType(),
-      url:  this._currentEl.data('url'),
-      data: data
+      type:   this._getType(),
+      url:    this._currentEl.data('url'),
+      data:   data
     })
   }
 
@@ -69,6 +72,9 @@ export default class Editable {
     const escaping   = e.which == 27
     const entering   = e.which == 13
     const autosaving = this._autosave && entering
+    if (entering && !this._currentEl) {
+      return e.preventDefault()
+    }
     if (entering && !this._autosave) {
       return this._resize()
     }

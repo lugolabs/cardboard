@@ -27,19 +27,24 @@
             </div>
             <div id="card-desc-text-<%= card.id %>"></div>
             <hr>
+
+            <div id="card-checklists">
+              <%= render @card.checklists %>
+            </div>
+
+            <div id="card-message-new-<%= card.id %>"></div>
+
+            <div class="mb-4" id="card-messages-<%= card.id %>">
+              <%= render card.messages %>
+            </div>
           </div>
           <div class="col-md-2">
-            <%= link_to 'Add message', [:new, card, :message], remote: true, class: 'btn btn-sm btn-block btn-primary' %>
+            <%= link_to t('.add_message'), [:new, card, :message], remote: true, class: 'btn btn-sm btn-block btn-primary' %>
+            <%= link_to t('.add_checklist'), [card, :checklists], remote: true, method: :post, class: 'btn btn-sm btn-block btn-primary' %>
             <%= link_to 'Delete', card, method: 'delete',
               data: { confirm: t('.confirm_delete') },
               class: 'btn btn-sm btn-block btn-default' %>
           </div>
-        </div>
-
-        <div id="card-message-new-<%= card.id %>"></div>
-
-        <div class="mb-4" id="card-messages-<%= card.id %>">
-          <%= render card.messages %>
         </div>
       </div>
 
