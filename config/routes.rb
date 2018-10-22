@@ -14,9 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :checklists, only: [] do
-    resources :checklist_items, only: %i[new create edit update destroy] do
-      patch :toggle, on: :member
-    end
+    resources :checklist_items, only: %i[new create edit update destroy]
   end
 
   root 'boards#index'

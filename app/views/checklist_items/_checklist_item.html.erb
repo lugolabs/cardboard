@@ -1,7 +1,7 @@
 <div class="row checklist-item" id="checklist-<%= checklist_item.checklist_id %>-item-<%= checklist_item.id %>">
   <div class="col-md-1 checklist-item-col text-right">
     <% if checklist_item.persisted? %>
-      <%= check_box_tag('checklist_item[checked]', '1', checklist_item.checked_at?, data: { remote: true, url: toggle_checklist_checklist_item_path(checklist_item.checklist, checklist_item), method: 'patch' }) %>
+      <%= check_box_tag('checklist_item[checked]', '1', checklist_item.checked_at?, data: { remote: true, url: checklist_checklist_item_path(checklist_item.checklist, checklist_item), method: 'patch' }) %>
     <% end %>
   </div>
   <div class="col-md-10 px-0 checklist-item-col">
