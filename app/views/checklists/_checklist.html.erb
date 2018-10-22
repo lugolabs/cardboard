@@ -3,7 +3,7 @@
     <div class="col-md-1">
     </div>
     <div class="col-md-9 pl-0">
-      <h4 class="h6 mb-0 mt-0" id="#checklist-title-<%= checklist.id %>">
+      <h4 class="h6 my-0" id="#checklist-title-<%= checklist.id %>">
         <textarea class="h6" rows="1"
           data-editable="update"
           data-url="<%= card_checklist_path(checklist.card, checklist) %>"
@@ -13,6 +13,17 @@
     </div>
     <div class="col-md-2 text-right">
       <%= link_to t('delete'), [checklist.card, checklist], method: :delete, remote: true, data: { confirm: t('.confirm_delete') },  class: 'mt-1 inline-block text-xs text-muted underline' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">
+      <span class="text-xs text-muted" id="checklist-<%= checklist.id %>-progress"><%= checklist.progress_display %></span>
+    </div>
+    <div class="col-md-9 pl-0">
+      <div class="progress progress-sm mt-2">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<%= checklist.progress %>%" id="checklist-<%= checklist.id %>-progress-bar"></div>
+      </div>
     </div>
   </div>
 

@@ -1,6 +1,6 @@
 class ChecklistItemsController < ApplicationController
   before_action :require_login, :set_checklist
-  before_action :set_checklist_item, only: %i[update destroy]
+  before_action :set_checklist_item, only: %i[update destroy toggle]
 
   def new
     @checklist_item = checklist_item_scope.new
@@ -17,6 +17,14 @@ class ChecklistItemsController < ApplicationController
   end
 
   def update
+    @checklist_item.update(checklist_item_params)
+    respond_to do |format|
+      format.html { render(plain: 'success') }
+      format.js
+    end
+  end
+
+  def toggle
     @checklist_item.update(checklist_item_params)
     respond_to do |format|
       format.html { render(plain: 'success') }
@@ -47,6 +55,6 @@ class ChecklistItemsController < ApplicationController
   end
 
   def checklist_item_params
-    params.require(:checklist_item).permit(:title)
+    params.key?(:checklist_item) ? params.require(:checklist_item).permit(:title, :checked) : { checked: '0' }
   end
 end
