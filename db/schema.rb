@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_20_115227) do
+ActiveRecord::Schema.define(version: 2018_10_22_173211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2018_10_20_115227) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
+  create_table "card_labels", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "card_id", null: false
+    t.uuid "label_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_card_labels_on_card_id"
+    t.index ["label_id"], name: "index_card_labels_on_label_id"
   end
 
   create_table "cards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -56,6 +65,12 @@ ActiveRecord::Schema.define(version: 2018_10_20_115227) do
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_checklists_on_card_id"
     t.index ["user_id"], name: "index_checklists_on_user_id"
+  end
+
+  create_table "labels", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lists", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -94,6 +109,8 @@ ActiveRecord::Schema.define(version: 2018_10_20_115227) do
   end
 
   add_foreign_key "boards", "users"
+  add_foreign_key "card_labels", "cards"
+  add_foreign_key "card_labels", "labels"
   add_foreign_key "cards", "lists"
   add_foreign_key "cards", "users"
   add_foreign_key "checklist_items", "checklists"

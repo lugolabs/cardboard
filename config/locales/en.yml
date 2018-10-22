@@ -39,6 +39,8 @@ en:
       add_checklist: Add checklist
       add_message: Add message
       confirm_delete: You sure you want to delete this card?
+      description: Description
+      labels: Labels
   messages:
     contents:
       confirm_delete: You sure you want to delete this message?
