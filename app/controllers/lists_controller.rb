@@ -4,10 +4,6 @@ class ListsController < ApplicationController
 
   def create
     @list = @board.lists.create!(title: t('lists.untitled'), user: current_user)
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   def update

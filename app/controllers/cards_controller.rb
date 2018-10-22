@@ -10,20 +10,12 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   def create
     @card = @list.cards.build(card_params.merge(row_order_position: :first))
     @card.user = current_user
     @card.save
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   def update

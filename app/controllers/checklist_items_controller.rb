@@ -4,10 +4,6 @@ class ChecklistItemsController < ApplicationController
 
   def new
     @checklist_item = checklist_item_scope.new
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   def create
@@ -18,18 +14,10 @@ class ChecklistItemsController < ApplicationController
 
   def update
     @checklist_item.update(checklist_item_params)
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   def destroy
     @checklist_item.destroy
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   private

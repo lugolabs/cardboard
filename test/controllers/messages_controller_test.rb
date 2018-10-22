@@ -9,32 +9,32 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    get new_card_message_url(@card)
+    get new_card_message_url(@card), xhr: true
     assert_response :success
   end
 
   test 'should create message' do
     assert_difference('Message.count') do
-      post card_messages_url(@card), params: { message: { content: 'Hello' } }
+      post card_messages_url(@card), params: { message: { content: 'Hello' } }, xhr: true
     end
 
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_card_message_url(@card, @message)
+    get edit_card_message_url(@card, @message), xhr: true
     assert_response :success
   end
 
   test 'should update message' do
-    patch card_message_url(@card, @message), params: { message: { content: 'Hello there' } }
+    patch card_message_url(@card, @message), params: { message: { content: 'Hello there' } }, xhr: true
     assert_response :success
     assert_equal 'Hello there', @message.reload.content
   end
 
   test 'should destroy message' do
     assert_difference('Message.count', -1) do
-      delete card_message_url(@card, @message)
+      delete card_message_url(@card, @message), xhr: true
     end
     assert_response :success
   end

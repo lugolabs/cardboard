@@ -10,7 +10,7 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create list' do
     assert_difference('List.count') do
-      post board_lists_url(@board)
+      post board_lists_url(@board), xhr: true
     end
 
     assert_response :success

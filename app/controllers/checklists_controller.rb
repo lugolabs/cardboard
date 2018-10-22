@@ -3,28 +3,16 @@ class ChecklistsController < ApplicationController
   before_action :set_checklist, only: %i[update destroy]
 
   def create
-    @checklist = @card.checklists.create(user: current_user, title: t('.default_title'))
+    @checklist = @card.checklists.create(user: current_user, title: t('checklists.default_title'))
     @checklist.checklist_items.build(user: current_user, title: '')
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   def update
     @checklist.update(checklist_params)
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   def destroy
     @checklist.destroy
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   private
