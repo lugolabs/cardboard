@@ -1,8 +1,11 @@
 <% if @checklist_item.persisted? %>
 $('#checklist-<%= @checklist.id %>-item-').replaceWith('<%= j render("checklist_item", checklist_item: @checklist_item) %>');
-$('#checklist-<%= @checklist.id %>-progress').html('<%= @checklist.progress_display %>');
 $('#checklist-<%= @checklist.id %>-progress-bar').width('<%= @checklist.progress %>%');
+$('#checklist-<%= @checklist.id %>-items').append('<%= j render("checklist_item", checklist_item: @new_checklist_item) %>');
+$("#checklist-<%= @checklist.id %>-items textarea:last").focus()
 <% else %>
 $('#checklist-<%= @checklist.id %>-item-').remove();
-<% end %>
 $('#checklist-<%= @checklist.id %>-add').removeClass('hidden');
+<% end %>
+$('#checklist-<%= @checklist.id %>-progress').html('<%= @checklist.progress_display %>');
+$('#card-mini-checklist-<%= @checklist.id %>-progress').html('<%= @checklist.progress_display %>');

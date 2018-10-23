@@ -17,7 +17,7 @@ class Checklist < ApplicationRecord
   private
 
   def item_count
-    @item_count ||= checklist_items.size
+    @item_count ||= checklist_items.where.not(id: nil).size
   end
 
   def checked_item_count
