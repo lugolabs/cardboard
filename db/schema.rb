@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_23_150932) do
+ActiveRecord::Schema.define(version: 2018_10_23_114151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -33,8 +33,30 @@ ActiveRecord::Schema.define(version: 2018_01_23_150932) do
     t.integer "row_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color"
     t.index ["list_id"], name: "index_cards_on_list_id"
     t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "checklist_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "checklist_id", null: false
+    t.uuid "user_id"
+    t.string "title"
+    t.datetime "checked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checklist_id"], name: "index_checklist_items_on_checklist_id"
+    t.index ["user_id"], name: "index_checklist_items_on_user_id"
+  end
+
+  create_table "checklists", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "card_id", null: false
+    t.uuid "user_id"
+    t.text "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_checklists_on_card_id"
+    t.index ["user_id"], name: "index_checklists_on_user_id"
   end
 
   create_table "lists", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -65,7 +87,7 @@ ActiveRecord::Schema.define(version: 2018_01_23_150932) do
     t.string "encrypted_password", limit: 128, null: false
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
-    t.integer "role"
+    t.integer "role", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
@@ -75,6 +97,8 @@ ActiveRecord::Schema.define(version: 2018_01_23_150932) do
   add_foreign_key "boards", "users"
   add_foreign_key "cards", "lists"
   add_foreign_key "cards", "users"
+  add_foreign_key "checklist_items", "checklists"
+  add_foreign_key "checklists", "cards"
   add_foreign_key "lists", "boards"
   add_foreign_key "lists", "users"
   add_foreign_key "messages", "cards"

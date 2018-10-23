@@ -17,7 +17,7 @@ class BoardsControllerTest < ActionDispatch::IntegrationTest
       post boards_url
     end
 
-    assert_redirected_to board_url(Board.last)
+    assert_redirected_to board_url(Board.order(created_at: :desc).first)
   end
 
   test 'should not create board if title is the same' do

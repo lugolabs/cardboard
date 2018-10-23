@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   resources :cards, only: %i[show update destroy] do
     resource :description, only: %i[edit update], module: :cards
     resources :movements, only: :create, module: :cards
-    resources :messages, only: %i[new edit create update destroy]
+    resources :messages, only: %i[new create edit update destroy]
+    resources :checklists, only: %i[create update destroy]
+    resource :labels, only: :update, module: :cards
+  end
+
+  resources :checklists, only: [] do
+    resources :checklist_items, only: %i[new create edit update destroy]
   end
 
   root 'boards#index'

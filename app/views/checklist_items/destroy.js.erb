@@ -1,0 +1,3 @@
+$('#checklist-<%= @checklist_item.checklist_id %>-item-<%= @checklist_item.id %>').remove()
+$('#checklist-<%= @checklist.id %>-progress').html('<%= @checklist.progress_display %>');
+$('#checklist-<%= @checklist.id %>-progress-bar').width('<%= @checklist.progress %>%');

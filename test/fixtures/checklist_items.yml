@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+todo_one:
+  checklist: todo
+  user: fred
+  title: Create model
+
+two:
+  checklist: todo
+  user: fred
+  title: Create controller
+  checked_at: '2018-10-22 10:00'

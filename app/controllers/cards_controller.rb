@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  before_action :require_login
   before_action :set_list, only: %i[new create]
   before_action :set_card, only: %i[show update destroy]
 
@@ -9,10 +10,6 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   def create

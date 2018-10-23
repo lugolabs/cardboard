@@ -1,0 +1,8 @@
+<% if @checklist_item.persisted? %>
+$('#checklist-<%= @checklist.id %>-item-').replaceWith('<%= j render("checklist_item", checklist_item: @checklist_item) %>');
+$('#checklist-<%= @checklist.id %>-progress').html('<%= @checklist.progress_display %>');
+$('#checklist-<%= @checklist.id %>-progress-bar').width('<%= @checklist.progress %>%');
+<% else %>
+$('#checklist-<%= @checklist.id %>-item-').remove();
+<% end %>
+$('#checklist-<%= @checklist.id %>-add').removeClass('hidden');

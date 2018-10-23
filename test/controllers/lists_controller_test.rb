@@ -10,11 +10,11 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create list' do
     assert_difference('List.count') do
-      post board_lists_url(@board)
+      post board_lists_url(@board), xhr: true
     end
 
     assert_response :success
-    assert_equal I18n.t('lists.untitled'), List.last.title
+    assert List.find_by(title: I18n.t('lists.untitled'))
   end
 
   test 'should update list' do

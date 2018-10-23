@@ -1,0 +1,6 @@
+$('#checklist-<%= @checklist.id %>-add').addClass('hidden');
+$('#checklist-<%= @checklist.id %>-items').append(
+  '<%= j render("checklist_item", checklist_item: @checklist_item) %>'
+);
+$("#checklist-<%= @checklist.id %>-items textarea:last").focus()
+

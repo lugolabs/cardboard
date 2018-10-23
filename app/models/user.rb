@@ -2,6 +2,8 @@ class User < ApplicationRecord
   include Clearance::User
 
   has_many :boards, dependent: :destroy
+  has_many :checklists, dependent: :nullify
+  has_many :checklist_items, dependent: :nullify
 
   enum role: { normal: 1, admin: 2 }
 
@@ -17,6 +19,10 @@ class User < ApplicationRecord
 
   def cards
     Card.where(list_id: all_lists.select(:id))
+  end
+
+  def all_checklists
+    Checklist.joins(card: { list: :board }).where(boards: { user_id: id })
   end
 
   def name

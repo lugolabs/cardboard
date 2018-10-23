@@ -1,13 +1,9 @@
 class ListsController < ApplicationController
-  before_action :set_board
+  before_action :require_login, :set_board
   before_action :set_list, only: %i[update destroy]
 
   def create
     @list = @board.lists.create!(title: t('lists.untitled'), user: current_user)
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
   end
 
   def update

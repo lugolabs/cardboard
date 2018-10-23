@@ -1,0 +1,21 @@
+<div class="row checklist-item" id="checklist-<%= checklist_item.checklist_id %>-item-<%= checklist_item.id %>">
+  <div class="col-md-1 checklist-item-col text-right">
+    <% if checklist_item.persisted? %>
+      <%= check_box_tag('checklist_item[checked]', '1', checklist_item.checked_at?, data: { remote: true, url: checklist_checklist_item_path(checklist_item.checklist, checklist_item), method: 'patch' }) %>
+    <% end %>
+  </div>
+  <div class="col-md-10 px-0 checklist-item-col">
+    <textarea rows="1"
+      data-editable="update"
+      data-url="<%= checklist_item.persisted? ? checklist_checklist_item_path(checklist_item.checklist, checklist_item) : checklist_checklist_items_path(checklist_item.checklist) %>"
+      data-attribute="title"
+      data-model="checklist_item"
+      data-type="<%= checklist_item.persisted? ? 'PUT' : 'POST' %>"
+      placeholder="<%= t('.placeholder') %>"><%= checklist_item.title %></textarea>
+  </div>
+  <div class="col-md-1 text-right  checklist-item-col">
+    <% if checklist_item.persisted? %>
+      <%= link_to '&times;'.html_safe, [checklist_item.checklist, checklist_item], method: :delete, remote: true, class: 'checklist-item-delete', title: t('delete') %>
+    <% end %>
+  </div>
+</div>

@@ -1,7 +1,6 @@
 <div class="modal" id="card-modal">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-
+    <div class="modal-content" style="border-top-color:<%= card.colorize %>">
       <div class="modal-body px-4">
         <div class="row">
           <div class="col-md-11">
@@ -19,27 +18,49 @@
         <div class="row mt-2">
           <div class="col-md-10">
             <h5 class="text-xs text-muted mb-0">
-              Description
-              <%= link_to 'Edit', [:edit, card, :description], remote: true, id: "card-desc-edit-#{card.id}" %>
+              <%= t('.description') %>
+              <%= link_to t('edit'), [:edit, card, :description], remote: true, id: "card-desc-edit-#{card.id}" %>
             </h5>
             <div id="card-desc-show-<%= card.id %>" class="markup-wrp">
               <%= render 'cards/descriptions/description', card: card %>
             </div>
             <div id="card-desc-text-<%= card.id %>"></div>
             <hr>
+
+            <div id="card-checklists">
+              <%= render @card.checklists %>
+            </div>
+
+            <div id="card-message-new-<%= card.id %>"></div>
+
+            <div class="mb-4" id="card-messages-<%= card.id %>">
+              <%= render card.messages %>
+            </div>
           </div>
           <div class="col-md-2">
-            <%= link_to 'Add message', [:new, card, :message], remote: true, class: 'btn btn-sm btn-block btn-primary' %>
+            <%= link_to t('.add_message'), [:new, card, :message], remote: true, class: 'btn btn-sm btn-block btn-primary' %>
+            <%= link_to t('.add_checklist'), [card, :checklists], remote: true, method: :post, class: 'btn btn-sm btn-block btn-primary' %>
+
+            <div class="dropdown my-2">
+              <button class="btn btn-sm btn-block btn-primary dropdown-toggle" type="button" id="card-labels-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= t('.labels') %>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right dropdown-menu-sm" aria-labelledby="card-labels-btn">
+                <li class="dropdown-item" title="No label">
+                    <%= link_to '&nbsp;'.html_safe, [card, :labels, { card: { color: '' } }], method: :patch, remote: true, style: "background-color:rgba(0, 0, 0, 0.2);" %>
+                  </li>
+                <% Card::COLORS.each do |color| %>
+                  <li class="dropdown-item">
+                    <%= link_to '&nbsp;'.html_safe, [card, :labels, { card: { color: color } }], method: :patch, remote: true, style: "background-color:#{color};" %>
+                  </li>
+                <% end %>
+              </div>
+            </div>
+
             <%= link_to 'Delete', card, method: 'delete',
               data: { confirm: t('.confirm_delete') },
               class: 'btn btn-sm btn-block btn-default' %>
           </div>
-        </div>
-
-        <div id="card-message-new-<%= card.id %>"></div>
-
-        <div class="mb-4" id="card-messages-<%= card.id %>">
-          <%= render card.messages %>
         </div>
       </div>
 
