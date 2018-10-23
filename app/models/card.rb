@@ -16,4 +16,8 @@ class Card < ApplicationRecord
   def colorize
     color.presence || 'inherit'
   end
+
+  def colorize_mini
+    color.presence || 'transparent'
+  end
 end
