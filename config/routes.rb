@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :movements, only: :create, module: :cards
     resources :messages, only: %i[new create edit update destroy]
     resources :checklists, only: %i[create update destroy]
+    resource :labels, only: :update, module: :cards
   end
 
   resources :checklists, only: [] do

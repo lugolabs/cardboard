@@ -191,7 +191,6 @@ a.text-muted:hover {
   padding: 8px 15px 6px;
 }
 
-
 .progress-sm {
   height: .3rem;
 }
@@ -306,10 +305,16 @@ a.text-muted:hover {
 
 .modal-content {
   background: #f5f5f5;
+  border-top: .2rem solid;
+  overflow: hidden;
 
   .close {
     font-weight: 400 !important;
   }
+}
+
+.modal-body {
+  min-height: 40rem;
 }
 
 // Markdown

@@ -3,18 +3,10 @@ module Cards
     before_action :set_card
 
     def edit
-      respond_to do |format|
-        format.html { render(plain: 'success') }
-        format.js
-      end
     end
 
     def update
       @card.update card_params
-      respond_to do |format|
-        format.html { render(plain: 'success') }
-        format.js
-      end
     end
 
     private

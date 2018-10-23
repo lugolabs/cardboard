@@ -1,7 +1,6 @@
 <div class="modal" id="card-modal">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-
+    <div class="modal-content" style="border-top-color:<%= card.colorize %>">
       <div class="modal-body px-4">
         <div class="row">
           <div class="col-md-11">
@@ -47,9 +46,12 @@
                 <%= t('.labels') %>
               </button>
               <div class="dropdown-menu dropdown-menu-right dropdown-menu-sm" aria-labelledby="card-labels-btn">
-                <% Label::COLORS.each do |color| %>
+                <li class="dropdown-item" title="No label">
+                    <%= link_to '&nbsp;'.html_safe, [card, :labels, { card: { color: '' } }], method: :patch, remote: true, style: "background-color:rgba(0, 0, 0, 0.2);" %>
+                  </li>
+                <% Card::COLORS.each do |color| %>
                   <li class="dropdown-item">
-                    <%= link_to '&nbsp;'.html_safe, '', remote: true, style: "background-color:#{color};" %>
+                    <%= link_to '&nbsp;'.html_safe, [card, :labels, { card: { color: color } }], method: :patch, remote: true, style: "background-color:#{color};" %>
                   </li>
                 <% end %>
               </div>
