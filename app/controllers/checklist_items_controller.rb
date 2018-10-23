@@ -10,6 +10,7 @@ class ChecklistItemsController < ApplicationController
     @checklist_item = checklist_item_scope.build(checklist_item_params)
     @checklist_item.user = current_user
     @checklist_item.save
+    @new_checklist_item = @checklist.checklist_items.build(user: current_user, title: '')
   end
 
   def update

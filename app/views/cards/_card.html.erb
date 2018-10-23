@@ -2,4 +2,7 @@
   <span id="card-title-<%= card.id %>">
     <%= card.title %>
   </span>
+  <div class="text-xs" id="card-mini-<%= card.id %>-checklists">
+    <%= render partial: 'cards/checklist', collection: card.checklists %>
+  </div>
 <% end %>

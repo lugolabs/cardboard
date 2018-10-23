@@ -1,3 +1,4 @@
 $('#card-checklists').append('<%= j render("checklist", checklist: @checklist) %>');
 $('#checklist-<%= @checklist.id %>-add').addClass('hidden');
 $("#checklist-<%= @checklist.id %>-items textarea").focus()
+$('#card-mini-<%= @card.id %>-checklists').append('<%= j render("cards/checklist", checklist: @checklist) %>');

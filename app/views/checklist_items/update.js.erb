@@ -1,3 +1,4 @@
 $('#checklist-<%= @checklist.id %>-add').removeClass('hidden');
 $('#checklist-<%= @checklist.id %>-progress').html('<%= @checklist.progress_display %>');
 $('#checklist-<%= @checklist.id %>-progress-bar').width('<%= @checklist.progress %>%');
+$('#card-mini-checklist-<%= @checklist.id %>-progress').html('<%= @checklist.progress_display %>');

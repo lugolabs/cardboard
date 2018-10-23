@@ -18,7 +18,8 @@
 .iconly-0651-smile:before,
 .iconly-0655-wink:before,
 .iconly-0823-plus:before,
-.iconly-0824-minus:before {
+.iconly-0824-minus:before,
+.iconly-0922-check-square:before {
   display: inline-block;
   font-family: "iconly";
   font-style: normal;
@@ -31,11 +32,12 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.iconly-0130-trash2:before { content: "\f120"; }
-.iconly-0215-reading:before { content: "\f125"; }
+.iconly-0130-trash2:before { content: "\f12b"; }
+.iconly-0215-reading:before { content: "\f12c"; }
 .iconly-0287-user:before { content: "\f104"; }
 .iconly-0651-smile:before { content: "\f121"; }
-.iconly-0655-wink:before { content: "\f122"; }
+.iconly-0655-wink:before { content: "\f12d"; }
 .iconly-0823-plus:before { content: "\f123"; }
-.iconly-0824-minus:before { content: "\f124"; }
+.iconly-0824-minus:before { content: "\f12e"; }
+.iconly-0922-check-square:before { content: "\f12f"; }
 
