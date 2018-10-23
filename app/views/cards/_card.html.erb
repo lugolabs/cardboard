@@ -1,4 +1,4 @@
-<%= link_to [card], class: 'card card-body py-1 px-2 text-muted', data: { action: 'drag-item', id: card.id, move: card_movements_path(card) } do %>
+<%= link_to [card], data: { action: 'drag-item', id: card.id, move: card_movements_path(card) }, class: 'card card-body card-color py-1 px-2 text-muted', style: "border-left-color:#{card.colorize_mini}", id: "list-card-#{card.id}" do %>
   <span id="card-title-<%= card.id %>">
     <%= card.title %>
   </span>
