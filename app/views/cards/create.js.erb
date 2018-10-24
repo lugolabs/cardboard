@@ -1,1 +1,2 @@
 $("#list-cards-<%= @list.id %> form").replaceWith('<%= j render("card", card: @card) %>');
+app.resizeList($('#list-cards-<%= @list.id %>'));
