@@ -15,6 +15,21 @@ export default class App {
        .on('turbolinks:load', () => { this._hideFlash() })
   }
 
+  resizeLists(height) {
+    height = height || $('#board-lists').height()
+    const listHeight = height - 35
+    const lists = $('.list-cards')
+    const length = lists.length
+    for (let i = 0; i < length; i++) {
+      this.resizeList(lists.eq(i), listHeight)
+    }
+  }
+
+  resizeList(list, height) {
+    height = height || $('#board-lists').height() - 35
+    if (list.height() > height) list.height(height)
+  }
+
   _hideFlash() {
     setTimeout(() => { $('#container-flash').fadeOut() }, 3000)
   }

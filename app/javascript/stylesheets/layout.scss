@@ -243,13 +243,18 @@ a.text-muted:hover {
     border-radius: $border-radius;
   }
 
-  .list-cards .card {
-    margin-top: 6px;
-    border: none;
-    border-top: .1rem solid transparent;
+  .list-cards {
+    overflow-x: hidden;
+    overflow-y: auto;
 
-    &:hover {
-      background: $light-blue;
+    .card {
+      margin-top: 6px;
+      border: none;
+      border-top: .1rem solid transparent;
+
+      &:hover {
+        background: $light-blue;
+      }
     }
   }
 }

@@ -22,7 +22,7 @@ export default class {
   _receive(el, ui) {
     const list = ui.item.parents('[data-action="drag"]')
     if (el != list[0]) return;
-    var data = { row_order_position: ui.item.index() }
+    let data = { row_order_position: ui.item.index() }
     if (ui.sender) data.list_id = list.data('id')
     $.post(ui.item.data('move'), { card: data })
   }
@@ -34,5 +34,6 @@ export default class {
     const height       = this.jwindow.height() - top - 10
     boardList.height(height)
     boardListWrp.height(height)
+    app.resizeLists(height)
   }
 }
