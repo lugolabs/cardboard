@@ -5,10 +5,11 @@ class ChecklistsController < ApplicationController
   def create
     @checklist = @card.checklists.create(user: current_user, title: t('.default_title'))
     @checklist.checklist_items.build(user: current_user, title: '')
-    respond_to do |format|
-      format.html { render(plain: 'success') }
-      format.js
-    end
+    head :ok
+    # respond_to do |format|
+    #   format.html { render(plain: 'success') }
+    #   format.js
+    # end
   end
 
   def update
